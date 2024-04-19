@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/e24507d923.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/all.min.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}">
+
+
+    <title>GUMMY CLOTHES | {% block title %} {% endblock %}</title>
+
+</head>
+<body>
+
+<nav>
+    <div class="container-fluid">
+        <ul>
+            <li>
+                <a href="/"  style="font-family:'Montserrat', sans-serif">
+                    <img src="static/images/GUMMY CLOTHES.png" alt="GUMMY CLOTHES" width="30" height="30">
+                    GUMMY CLOTHES
+                </a>
+            </li>
+            <li><a href="/aboutus" style="font-family:'Montserrat', sans-serif">About us</a></li>
+            <!-- <li><a href="#contact" style="font-family:'Montserrat', sans-serif">Contact us</a></li> -->
+            <li>
+                <form method="POST" action="/search">
+                    <input type="text" name="search"  style="font-family:'Montserrat', sans-serif" placeholder="Searching...">
+                    <button type="submit"  style="font-family:'Montserrat', sans-serif">Search</button>
+                </form>
+            </li>
+
+            <!--Hiện dữ liệu nếu searchtext không rỗng-->
+            <p>
+                {% if search_text %}
+                <div class="menu">
+                    <ul>
+                        {% for row in table %}
+                        <li>{{ row[0]}}
+                            {{ row[1]}} -
+                            {{ row[2]}}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </p>
+            <!--
+            <li><a href="#wishlist" style="font-family:'Montserrat', sans-serif">Yêu thích</a></li>
+             <li><a href="#wishlist" style="font-family:'Montserrat', sans-serif">Giỏ hàng</a></li> -->
+
+
+            <li id="items" >
+            {% if cart | length < 1 %}
+            <a  href="/cart" style="  position: relative;font-family:'Montserrat', sans-serif"><span class="badge bg-success"></span> Shopping cart
+            </a>
+            {% else %}
+            <a  href="/cart" style="position: relative;font-family:'Montserrat', sans-serif"><span class="badge bg-success"></span> Shopping cart
+              <i class="bi bi-{{ cart | length }}-square-fill"></i>
+            </a>
+
+            {% endif %}
+
+          </li>
+
+
+            <li>
+            <a href="javascript:void(0)" style="font-family: 'Montserrat', sans-serif;">Account</a>
+            <ul >
+                {% if current_user.is_authenticated %}
+                <li ><a  href="/profile/{{ current_user.id }}">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+                {% else %}
+                <li ><a href="/login">Login</a></li>
+                {% endif %}
+            </ul>
+        </li>
+
+            <style>
+                           li {
+                list-style: none;
+            }
+
+            a {
+                display: block;
+                padding: 10px 15px;
+                text-decoration: none;
+                color: black;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            a:hover {
+                background-color: #f5bccf; /* Màu nền hồng khi hover */
+            }
+            </style>
+
+        </ul>
+    </div>
+</nav>
+
+
+ {% for message in get_flashed_messages() %}
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 5px;">
+        <strong>{{ message }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+    </div>
+    {% endfor %}
+
+    {% block body %}
+
+
+    {% endblock %}
+
+
+
+<footer class="container-fluid  text-center p-2 mt-5" style="background-color: rgba(198, 217, 181, 255); color: black;">
+      <a  style="color: black;font-family: 'Montserrat', sans-serif;font-weight: bold;">2024 | GUMMY CLOTHES | HANOI | VIETNAM</a>
+
+
+    </footer>
+
+    <script src="{{ url_for( 'static', filename='js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for( 'static', filename='js/all.min.js') }}"></script>
+    <script src="{{ url_for( 'static', filename='js/jquery.js') }}"></script>
+
+    <script src="{{ url_for( 'static', filename='js/myScript.js') }}"></script>
+
+</body>
+</html>

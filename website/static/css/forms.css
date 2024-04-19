@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image:linear-gradient(#dda9ba,#fbf9e9);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.base .base-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+    color:#fff;
+}
+
+.base .base-content .form{
+    font-family: 'Montserrat', sans-serif
+    height: 500px;
+    width: 300px;
+    background: #c496a6;
+    border: 1px solid #fbf9e9;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.base .base-content .form h3{
+    color: #624b53;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+}
+.base .base-content .form hr{
+
+    width: 88%;
+    margin-top: 30px;
+    margin-left: 20px;
+        background-color: #c496a6;
+}
+#base-signup .base-content .form hr{
+    margin-top: 2px;
+}
+#base-signup .base-content .form input{
+    margin-top: 5px;
+}
+.base .base-content .email, .base .base-content .password, .base .base-content .name{
+    margin-top: 3px;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+
+}
+.base .base-content .form input{
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 17px;
+}
+.base .base-content .form .buttons input, .base .base-content .form .buttons a{
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 5 20px;
+    text-decoration: none;
+    color: #fff;
+    background:#624b53;
+    border: 2px solid #624b53;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+.base .base-content .form .buttons input:hover, .base .base-content .form .buttons a:hover{
+    background: transparent;
+    border: 1px solid #fff;
+}
+

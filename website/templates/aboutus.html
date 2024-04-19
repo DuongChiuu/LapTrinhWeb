@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %} Admin Page {% endblock %}
+
+{% block body %}
+
+
+
+         <div class="container11">
+        <img src="static/images/hoaaa.gif" alt="Background" class="background-image11">
+        <img src="static/images/about.jpg" alt="About" class="about-image11">
+        <div class="content11">
+            <h2>About Us</h2>
+            <p>GUMMY lấy cảm hứng từ sự trẻ trung nhưng không kém phần thanh lịch. luôn giúp bạn trở nên tự tin hơn và điều đó sẽ quyết định vẻ đẹp của riêng bạn.</p>
+            <p>Những sản phẩm được thiết kế bởi GUM luôn chứa đựng sự tinh tế, sự khác biệt, sự chân thật nhất từ chất liệu, đường may đến kiểu dáng. Đem đến một vẻ đẹp độc đáo mà khách hàng mong muốn.</p>
+        </div>
+    </div>
+
+    <style>
+    body {
+        background: lightblue;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+.container11 {
+    position: relative;
+}
+
+.background-image11 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-image1 {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+
+    max-width: 10%;
+}
+
+.content11 {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    color: white;
+}
+
+</style>
+
+{% endblock %}

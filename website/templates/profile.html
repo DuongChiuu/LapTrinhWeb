@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+
+<div class="container my-5">
+    <div class="row">
+        <h3 style="font-family:'Montserrat', sans-serif; color: #f5bccf;">Welcome <span class="text-capitalize">{{ customer.username }}</span></h3>
+
+        <div class="col-sm-2 border-end" style="margin-top: 10px;width: 300px;">
+        
+                    <ul class="list-unstyled">
+            {% if customer.id == 1 %}
+            <li class="d-grid"><a href="/add-shop-items" style="font-family:'Montserrat', sans-serif;" class="btn btn-primary">Add Items</a></li>
+            <li class="d-grid"><a href="/shop-items" style="font-family:'Montserrat', sans-serif;" class="btn btn-primary">Shop Items</a></li>
+            {% endif %}
+            <li class="d-grid"><a href="/change-password/{{ customer.id }}" class="btn btn-primary" style="font-family:'Montserrat', sans-serif;margin-top: 5px;">Change Password</a></li>
+        </ul>
+
+        <style>
+            .btn-primary {
+                background-color: #f5bccf;
+                color: #624b53;
+                border: 1px solid white;
+                transition: background-color 0.3s ease;
+            }
+
+            .btn-primary:hover {
+                background-color: #c496a6;
+                border: 1px solid white;
+            }
+        </style>
+        
+        </div>
+
+        <div class="col-sm-5 offset-sm-1" style="background-color: rgba(198, 217, 181, 255); border-radius: 18px; margin-top: 20px;">
+            <div class="row"  >
+                <div class="col-sm-8" >
+                    <div class="card m-2"  style="background-color: #f5bccf; height: 120px; width: 380px;">
+
+                        <h3> {{ customer.username }}</h3>
+                        <p> Email: {{ customer.email }}</p>
+                        <style>h3, p {
+                        padding: 10px;
+                         font-family: 'Montserrat', sans-serif;
+                         color: #624b53;
+                         }
+                        </style>
+
+                    </div>
+                </div>
+
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+{% endblock %}
